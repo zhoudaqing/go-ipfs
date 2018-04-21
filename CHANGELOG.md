@@ -1,5 +1,80 @@
 # go-ipfs changelog
 
+## 0.4.15-rc1 2018-04-XX
+
+
+- Features:
+  - Add options for record count and timeout for resolving DHT paths ([ipfs/go-ipfs#4733](https://github.com/ipfs/go-ipfs/pull/4733))
+  - Add low power init profile ([ipfs/go-ipfs#4154](https://github.com/ipfs/go-ipfs/pull/4154))
+  - Add Opentracing plugin support ([ipfs/go-ipfs#4506](https://github.com/ipfs/go-ipfs/pull/4506))
+  - mk: add tarball support ([ipfs/go-ipfs#4920](https://github.com/ipfs/go-ipfs/pull/4920))
+
+- Improvements
+  - blockservice: add BlockedFetched/Added/Removed events ([ipfs/go-ipfs#4649](https://github.com/ipfs/go-ipfs/pull/4649))
+  - improve performance of HAMTs ([ipfs/go-ipfs#4889](https://github.com/ipfs/go-ipfs/pull/4889))
+  - don't resolve children unnecessarily when listing a sharded directory ([ipfs/go-ipfs#4884](https://github.com/ipfs/go-ipfs/pull/4884))
+  - make the tar writer handle sharded ipfs directories ([ipfs/go-ipfs#4873](https://github.com/ipfs/go-ipfs/pull/4873))
+  - infer type from CID when possible in ls command ([ipfs/go-ipfs#4890](https://github.com/ipfs/go-ipfs/pull/4890))
+  - dedup keys in GetMany ([ipfs/go-ipfs#4888](https://github.com/ipfs/go-ipfs/pull/4888))
+
+- Bugfixes
+  - dag: diff: check CIDs in base case when comparing nodes ([ipfs/go-ipfs#4767](https://github.com/ipfs/go-ipfs/pull/4767))
+  - commands/block: use CIDv1 with custom mhtype ([ipfs/go-ipfs#4563](https://github.com/ipfs/go-ipfs/pull/4563))
+  - unixfs: clean path in DagArchive ([ipfs/go-ipfs#4743](https://github.com/ipfs/go-ipfs/pull/4743))
+  - add: hash-only: set the prefix for MFS root ([ipfs/go-ipfs#4755](https://github.com/ipfs/go-ipfs/pull/4755))
+  - Fix get output path ([ipfs/go-ipfs#4809](https://github.com/ipfs/go-ipfs/pull/4809))
+  - fix incorrect Read calls ([ipfs/go-ipfs#4792](https://github.com/ipfs/go-ipfs/pull/4792))
+  - Use prefix in bootstrapWritePeers ([ipfs/go-ipfs#4832](https://github.com/ipfs/go-ipfs/pull/4832))
+  - fix(mfs): Directory.Path not working, add test ([ipfs/go-ipfs#4844](https://github.com/ipfs/go-ipfs/pull/4844))
+  - cmds/stat: remove useless header if not polling ([ipfs/go-ipfs#4856](https://github.com/ipfs/go-ipfs/pull/4856))
+  - build: match Go's GOPATH defaults behaviour ([ipfs/go-ipfs#4678](https://github.com/ipfs/go-ipfs/pull/4678))
+  - fix default-net profile not reverting bootstrap config ([ipfs/go-ipfs#4845](https://github.com/ipfs/go-ipfs/pull/4845))
+
+- General Changes and Refactorings
+  - Refactor trickle DAG builder ([ipfs/go-ipfs#4730](https://github.com/ipfs/go-ipfs/pull/4730))
+  - coreapi: Split the interface into multiple files ([ipfs/go-ipfs#4802](https://github.com/ipfs/go-ipfs/pull/4802))
+  - make init command use go-ipfs-cmds ([ipfs/go-ipfs#4732](https://github.com/ipfs/go-ipfs/pull/4732))
+  - Extract: thirdparty/tar ([ipfs/go-ipfs#4857](https://github.com/ipfs/go-ipfs/pull/4857))
+  - bitswap: reduce level when logging about disconnected peers to info ([ipfs/go-ipfs#4811](https://github.com/ipfs/go-ipfs/pull/4811))
+  - only visit nodes in EnumerateChildrenAsync when asked ([ipfs/go-ipfs#4885](https://github.com/ipfs/go-ipfs/pull/4885))
+  - coreapi: Refactor options ([ipfs/go-ipfs#4807](https://github.com/ipfs/go-ipfs/pull/4807))
+  - Fix error style for most errors ([ipfs/go-ipfs#4829](https://github.com/ipfs/go-ipfs/pull/4829))
+  - No dev null pipe ([ipfs/go-ipfs#4849](https://github.com/ipfs/go-ipfs/pull/4849))
+  - dag: deduplicate AddNodeLinkClean into AddNodeLink ([ipfs/go-ipfs#4940](https://github.com/ipfs/go-ipfs/pull/4940))
+  - Fix typo in error message ([ipfs/go-ipfs#4933](https://github.com/ipfs/go-ipfs/pull/4933))
+  - misc: Remove some dead code ([ipfs/go-ipfs#4833](https://github.com/ipfs/go-ipfs/pull/4833))
+  - fix unused imports ([ipfs/go-ipfs#4955](https://github.com/ipfs/go-ipfs/pull/4955))
+
+- Testing:
+  - sharness: Generate JUnit test reports ([ipfs/go-ipfs#4530](https://github.com/ipfs/go-ipfs/pull/4530))
+  - Fix t0063-daemon-init.sh by adding test profile to daemon ([ipfs/go-ipfs#4816](https://github.com/ipfs/go-ipfs/pull/4816))
+  - Feat: remove circular dependencies in merkledag package tests ([ipfs/go-ipfs#4704](https://github.com/ipfs/go-ipfs/pull/4704))
+  - sharness/t0010: check that all the commands fail when passed a bad flag ([ipfs/go-ipfs#4848](https://github.com/ipfs/go-ipfs/pull/4848))
+  - misc: allow for some coverage fall on commit ([ipfs/go-ipfs#4867](https://github.com/ipfs/go-ipfs/pull/4867))
+  - misc: add confirmation to archive-branches script ([ipfs/go-ipfs#4797](https://github.com/ipfs/go-ipfs/pull/4797))
+
+- Dependencies
+  - Update lock ([ipfs/go-ipfs#4855](https://github.com/ipfs/go-ipfs/pull/4855))
+  - Update to latest go-datastore. Remove thirdparty/datastore2 ([ipfs/go-ipfs#4742](https://github.com/ipfs/go-ipfs/pull/4742))
+  - refactor: extract fs lock into go-fs-lock ([ipfs/go-ipfs#4631](https://github.com/ipfs/go-ipfs/pull/4631))
+  - Extract: exchange/interface.go, blocks/blocksutil, exchange/offline ([ipfs/go-ipfs#4912](https://github.com/ipfs/go-ipfs/pull/4912))
+
+  - Fix go vet warnings ([ipfs/go-ipfs#4859](https://github.com/ipfs/go-ipfs/pull/4859))
+  - Update broken links ([ipfs/go-ipfs#4798](https://github.com/ipfs/go-ipfs/pull/4798))
+  - misc: spelling of retrieval ([ipfs/go-ipfs#4819](https://github.com/ipfs/go-ipfs/pull/4819))
+  - Remove roadmap.md ([ipfs/go-ipfs#4834](https://github.com/ipfs/go-ipfs/pull/4834))
+  - misc: remove link to IPFS paper in contribute.md ([ipfs/go-ipfs#4812](https://github.com/ipfs/go-ipfs/pull/4812))
+  - gx: bump version for 0.4.14 release ([ipfs/go-ipfs#4875](https://github.com/ipfs/go-ipfs/pull/4875))
+  - Fix 4864 - broken todo link in readme.md ([ipfs/go-ipfs#4865](https://github.com/ipfs/go-ipfs/pull/4865))
+  - document ipns pubsub ([ipfs/go-ipfs#4903](https://github.com/ipfs/go-ipfs/pull/4903))
+  - Fix missing profile docs ([ipfs/go-ipfs#4846](https://github.com/ipfs/go-ipfs/pull/4846))
+  - misc: Fix a few typos ([ipfs/go-ipfs#4835](https://github.com/ipfs/go-ipfs/pull/4835))
+  - github: remove go-ipfs version from issue template ([ipfs/go-ipfs#4943](https://github.com/ipfs/go-ipfs/pull/4943))
+
+
+
+
+
 ## 0.4.14 2018-03-22
 
 Ipfs 0.4.14 is a big release with a large number of improvements and bugfixes.
