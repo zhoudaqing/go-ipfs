@@ -416,12 +416,7 @@ func (ds *Shard) Prefetch(ctx context.Context) error {
 	revmap := make(map[string]string)
 	var reqcids []*cid.Cid
 
-	for _, c := range ds.children {
-		l, err := c.Link()
-		if err != nil {
-			return err
-		}
-
+	for _, l := range ds.nd.Links() {
 		reqcids = append(reqcids, l.Cid)
 		revmap[l.Cid.KeyString()] = l.Name
 	}
