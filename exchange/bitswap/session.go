@@ -15,7 +15,7 @@ import (
 	loggables "gx/ipfs/Qmf9JgVLz46pxPXwG2eWSJpkqVCcjD4rp7zCRi2KP6GTNB/go-libp2p-loggables"
 )
 
-const activeWantsLimit = 16
+const activeWantsLimit = 256
 
 // Session holds state for an individual bitswap transfer operation.
 // This allows bitswap to make smarter decisions about who to send wantlist

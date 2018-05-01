@@ -24,6 +24,7 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"sync"
 
 	dag "github.com/ipfs/go-ipfs/merkledag"
 	format "github.com/ipfs/go-ipfs/unixfs"
@@ -406,6 +407,60 @@ func (ds *Shard) ForEachLink(ctx context.Context, f func(*ipld.Link) error) erro
 
 		return f(lnk)
 	})
+}
+
+func (ds *Shard) Prefetch(ctx context.Context) error {
+	ctx, cancel := context.WithCancel(ctx)
+	defer cancel()
+
+	revmap := make(map[string]string)
+	var reqcids []*cid.Cid
+
+	for _, c := range ds.children {
+		l, err := c.Link()
+		if err != nil {
+			return err
+		}
+
+		reqcids = append(reqcids, l.Cid)
+		revmap[l.Cid.KeyString()] = l.Name
+	}
+
+	var wg sync.WaitGroup
+	errs := make(chan error, len(reqcids))
+	for p := range ds.dserv.GetMany(ctx, reqcids) {
+		if p.Err != nil {
+			return p.Err
+		}
+
+		rname := revmap[p.Node.Cid().KeyString()]
+		if len(rname) == ds.maxpadlen {
+			s, err := NewHamtFromDag(ds.dserv, p.Node)
+			if err != nil {
+				return err
+			}
+
+			wg.Add(1)
+			go func(s *Shard) {
+				if err := s.Prefetch(ctx); err != nil {
+					errs <- err
+				}
+
+				wg.Done()
+			}(s)
+		}
+	}
+
+	wg.Wait()
+	close(errs)
+
+	for err := range errs {
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
 }
 
 func (ds *Shard) walkTrie(ctx context.Context, cb func(*shardValue) error) error {

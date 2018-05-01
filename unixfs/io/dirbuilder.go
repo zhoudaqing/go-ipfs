@@ -159,6 +159,10 @@ func (d *Directory) Links(ctx context.Context) ([]*ipld.Link, error) {
 		return d.dirnode.Links(), nil
 	}
 
+	if err := d.shard.Prefetch(ctx); err != nil {
+		return nil, err
+	}
+
 	return d.shard.EnumLinks(ctx)
 }
 
