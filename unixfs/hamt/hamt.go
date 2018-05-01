@@ -410,6 +410,11 @@ func (ds *Shard) ForEachLink(ctx context.Context, f func(*ipld.Link) error) erro
 }
 
 func (ds *Shard) Prefetch(ctx context.Context) error {
+	lim := make(chan struct{}, 32)
+	return ds.prefetchRec(ctx, lim)
+}
+
+func (ds *Shard) prefetchRec(ctx context.Context, lim chan struct{}) error {
 	ctx, cancel := context.WithCancel(ctx)
 	defer cancel()
 
@@ -436,11 +441,12 @@ func (ds *Shard) Prefetch(ctx context.Context) error {
 			}
 
 			wg.Add(1)
+			lim <- struct{}{}
 			go func(s *Shard) {
-				if err := s.Prefetch(ctx); err != nil {
+				if err := s.prefetchRec(ctx, lim); err != nil {
 					errs <- err
 				}
-
+				<-lim
 				wg.Done()
 			}(s)
 		}
