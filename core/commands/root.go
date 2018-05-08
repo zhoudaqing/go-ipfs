@@ -10,10 +10,11 @@ import (
 	ocmd "github.com/ipfs/go-ipfs/core/commands/object"
 	unixfs "github.com/ipfs/go-ipfs/core/commands/unixfs"
 
-	lgc "github.com/ipfs/go-ipfs/commands/legacy"
 	logging "gx/ipfs/QmRb5jh8z2E8hMGN2tkvs1yHynUanqnZ3UeKwgN1i9P1F8/go-log"
 	"gx/ipfs/QmTjNRVt2fvaRFu93keEC7z5M1GS1iH6qZ9227htQioTUY/go-ipfs-cmds"
 	"gx/ipfs/QmceUdzxkimdYsgtX733uNgzf1DLHyBKN6ehGSp85ayppM/go-ipfs-cmdkit"
+
+	lgc "github.com/ipfs/go-ipfs/commands/legacy"
 )
 
 var log = logging.Logger("core/commands")
@@ -127,7 +128,7 @@ var rootSubcommands = map[string]*cmds.Command{
 	"mount":     lgc.NewCommand(MountCmd),
 	"name":      lgc.NewCommand(NameCmd),
 	"object":    ocmd.ObjectCmd,
-	"pin":       lgc.NewCommand(PinCmd),
+	"pin":       PinCmd,
 	"ping":      lgc.NewCommand(PingCmd),
 	"p2p":       lgc.NewCommand(P2PCmd),
 	"refs":      lgc.NewCommand(RefsCmd),
