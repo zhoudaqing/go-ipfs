@@ -130,9 +130,9 @@
     },
     {
       "author": "jbenet",
-      "hash": "QmXRKBQA4wXP7xWbFiZsR1GP4HV6wMDQ1aWFxZZ4uBcPX9",
+      "hash": "QmeiCcJfDW1GJnWUArudsv5rQsihpi4oyddPhdqo3CfX6i",
       "name": "go-datastore",
-      "version": "2.4.0"
+      "version": "2.4.1"
     },
     {
       "author": "codahale",
@@ -184,21 +184,21 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmaCTqBCt1aKaGfHfSVzsprqWRXCjHthK8xXrPbUZYCWga",
+      "hash": "Qmf9GDuDGPPvMJwyQk7zdQcaMZNWkrtXhxAjKW8gD8tsv5",
       "name": "go-ds-flatfs",
-      "version": "1.1.9"
+      "version": "1.2.4"
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmbJgZGRtkFeSdCxBCPaMKWRDYbqMxHyFfvjQGcWzpqsDe",
+      "hash": "QmXez8SABR95KKKgU9XFtTTQ79QRn2nWS9o5pa1EcHsLs5",
       "name": "go-ds-measure",
-      "version": "1.3.1"
+      "version": "1.3.2"
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmVVhwMHaGHPgZY6pi8hbWGLSgMcZUSdEhJBChjxhBMCoy",
+      "hash": "Qmb4NghN5y3uGjiZCQWU6g1ZWRVmFCykLmByqxEVi7px1d",
       "name": "go-ds-leveldb",
-      "version": "1.0.6"
+      "version": "1.0.7"
     },
     {
       "author": "whyrusleeping",
@@ -219,9 +219,9 @@
       "version": "0.1.2"
     },
     {
-      "hash": "QmY1y2M1aCcVhy8UuTbZJBvuFbegZm47f9cDAdgxiehQfx",
+      "hash": "QmWJD5z8vwCJQWvWRfEByf2JbFs9FegnB6Lrg3mYqrbgHD",
       "name": "go-libp2p-kad-dht",
-      "version": "3.0.18"
+      "version": "3.0.19"
     },
     {
       "author": "whyrusleeping",
@@ -446,9 +446,9 @@
     },
     {
       "author": "magik6k",
-      "hash": "QmPAiAmc3qhTFwzWnKpxr6WCXGZ5mqpaQ2YEwSTnwyduHo",
+      "hash": "QmYPG7cRqBm69EYyYJ4yPwZ3GcPRTgNL7kpiboUvjtg4QZ",
       "name": "go-ds-badger",
-      "version": "1.4.5"
+      "version": "1.4.6"
     },
     {
       "author": "whyrusleeping",
@@ -536,21 +536,21 @@
     },
     {
       "author": "hsanjuan",
-      "hash": "QmTmqJGRQfuH8eKWD1FjThwPRipt1QhqJQNZ8MpzmfAAxo",
+      "hash": "QmYJgz1Z5PbBGP7n2XA8uv5sF1EKLfYUjL7kFemVAjMNqC",
       "name": "go-ipfs-ds-help",
-      "version": "0.0.2"
+      "version": "0.0.3"
     },
     {
       "author": "hsanjuan",
-      "hash": "QmXtoXbu9ReyV6Q4kDQ5CF9wXQNDY1PdHc4HhfxRR5AHB3",
+      "hash": "QmbhrE4WDBUYTujDaKMw6siq2V2dG3XHPizhzVdkf8agPK",
       "name": "go-ipfs-routing",
       "version": "0.0.2"
     },
     {
       "author": "hsanjuan",
-      "hash": "QmaG4DZ4JaqEfvPWt5nPPgoTzhc1tr1T3f4Nu9Jpdm8ymY",
+      "hash": "QmayRSLCiM2gWR7Kay8vqu3Yy5mf7yPqocF9ZRgDUPYMcc",
       "name": "go-ipfs-blockstore",
-      "version": "0.0.2"
+      "version": "0.0.4"
     },
     {
       "author": "why",
@@ -590,9 +590,9 @@
     },
     {
       "author": "hsanjuan",
-      "hash": "QmWM5HhdG5ZQNyHQ5XhMdGmV9CvLpFynQfGpTxN2MEM7Lc",
+      "hash": "QmPV3PZx6Wuuj3nJU6TxdSVS8mXYUvrqikXe8k3x6XojrC",
       "name": "go-ipfs-exchange-offline",
-      "version": "0.0.1"
+      "version": "0.0.3"
     },
     {
       "author": "Stebalien",
