@@ -82,6 +82,9 @@ The output is:
 			for {
 				v, err := res.Next()
 				if err != nil {
+					if err == io.EOF {
+						return nil
+					}
 					return err
 				}
 
