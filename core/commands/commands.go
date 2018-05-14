@@ -14,7 +14,7 @@ import (
 	e "github.com/ipfs/go-ipfs/core/commands/e"
 
 	"gx/ipfs/QmVViZcg6N29WMrbfbzuYXFAGVoCvcR5oqadxfnMcLMnmx/go-ipfs-cmdkit"
-	cmds "gx/ipfs/QmfAkMSt9Fwzk48QDJecPcwCUjnf2uG7MLnmCGTp4C6ouL/go-ipfs-cmds"
+	cmds "gx/ipfs/Qmd7wGzUcLBNbQ2XwX5CdqFCzkQ2YkFgttemSg9qeeyZY9/go-ipfs-cmds"
 )
 
 type commandEncoder struct {
